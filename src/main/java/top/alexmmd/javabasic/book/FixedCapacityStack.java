@@ -6,6 +6,10 @@ public class FixedCapacityStack<T> {
 
     private int n;
 
+    public FixedCapacityStack() {
+        array = (T[]) new Object[100];
+    }
+
     public FixedCapacityStack(int cap) {
         array = (T[]) new Object[cap];
     }
