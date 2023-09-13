@@ -39,10 +39,49 @@ public class Interview {
     }
 
 
-    public static void main(String[] args) {
-        String s = reverseString("123456");
-        System.out.println("s = " + s);
+    public static int maxCommonDivisor(int a, int b) {
+        int temp = a;
+        if (a < b) {
+            a = b;
+            b = temp;
+        }
+        while (temp != 0) {
+            temp = a % b;
+            System.out.println("temp = " + temp);
+            a = b;
+            b = temp;
+        }
+        return a;
 
+
+    }
+
+    public static void sortArray(int[] arr) {
+        // 使用冒泡排序算法
+        int n = arr.length;
+        boolean swapped;
+
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // 交换arr[j]和arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            // 如果在本轮没有发生交换，说明数组已经有序，可提前退出循环
+            if (!swapped) {
+                break;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("maxCommonDivisor = " + maxCommonDivisor(6, 4));
     }
 
 
